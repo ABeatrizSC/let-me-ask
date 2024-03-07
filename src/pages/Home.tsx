@@ -12,7 +12,7 @@ import '../styles/auth.scss';
 export const Home = () => {
     const history = useNavigate();
 
-    function navigateToNewRoom() {
+    function haldleCreateRoom() {
         history('/rooms/new');
     }
 
@@ -26,7 +26,7 @@ export const Home = () => {
             <main>
                 <div className="main-content">
                     <img src={logoImg} alt="Logo do Let me Ask" />
-                    <button onClick={navigateToNewRoom} className="button-create-room">
+                    <button onClick={haldleCreateRoom} className="button-create-room">
                         <img src={googleIconImg} alt="Logo do Google" />
                         Crie sua sala com o Google
                     </button>
