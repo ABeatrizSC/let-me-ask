@@ -6,9 +6,15 @@ import { Button } from '../components/Button';
 //navegação para link Entrar em uma sala existente
 import { Link } from 'react-router-dom';
 
+//context
+import { useContext } from 'react';
+import { AuthContext } from '../contexts/AuthContext';
+
 import '../styles/auth.scss';
 
 export const NewRoom = () => {
+    const { user } = useContext(AuthContext);
+
     return (
         <div id="page-auth">
             <aside>

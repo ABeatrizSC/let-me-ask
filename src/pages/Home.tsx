@@ -1,18 +1,27 @@
+//navegação para botão Criar sala com o Google
+import { useNavigate } from 'react-router-dom';
+
+import { Button } from '../components/Button';
+
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
 import googleIconImg from '../assets/images/google-icon.svg';
 
-import { Button } from '../components/Button';
-
-//navegação para botão Criar sala com o Google
-import { useNavigate } from 'react-router-dom';
-
 import '../styles/auth.scss';
+
+//contextos
+import { useContext } from 'react';
+import { AuthContext } from '../contexts/AuthContext';
 
 export const Home = () => {
     const history = useNavigate();
+    const { user, signInWithGoogle } = useContext(AuthContext);
+    
+    async function haldleCreateRoom() {
+        if (!user) { //sem autenticação
+            await signInWithGoogle();
+        }
 
-    function haldleCreateRoom() {
         history('/rooms/new');
     }
 
